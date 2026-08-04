@@ -1,4 +1,4 @@
-# 📚 RAG Dashboard Gratis (Groq + ChromaDB + Streamlit)
+# RAG Dashboard Gratis (Groq + ChromaDB + Streamlit)
 
 Dashboard sederhana untuk RAG (Retrieval Augmented Generation) end-to-end.
 Upload PDF/TXT → tanya isinya → jawab pakai LLM gratis.
@@ -27,7 +27,7 @@ pip install -r requirements.txt
 2. Login/daftar (gratis, gak perlu kartu kredit)
 3. Klik "Create API Key", copy key-nya
 
-Kamu bisa paste key itu langsung di kolom sidebar aplikasi,
+bisa paste key itu langsung di kolom sidebar aplikasi,
 atau simpan sebagai environment variable biar gak perlu isi ulang:
 
 ```bash
@@ -67,9 +67,9 @@ Browser akan otomatis kebuka di `http://localhost:8501`.
 [Kirim: pertanyaan + chunk relevan] → [Groq LLM] → [Jawaban + sumbernya]
 ```
 
-## 🆕 Fitur baru: multi-format + analisis data
+## Fitur baru: multi-format + analisis data
 
-### Tab "📄 Tanya Dokumen (RAG)"
+### Tab "Tanya Dokumen (RAG)"
 - **DOCX** — upload file Word langsung, otomatis di-extract (termasuk isi tabel).
 - **Website scraping** — masukkan URL, kontennya otomatis diambil & masuk ke knowledge base
   (butuh `requests` + `beautifulsoup4`, sudah ada di requirements.txt). Cocok untuk artikel/
@@ -86,7 +86,7 @@ Browser akan otomatis kebuka di `http://localhost:8501`.
 - **Streaming jawaban** — jawaban LLM sekarang muncul kata-per-kata secara real-time, bukan
   nunggu full response sekaligus.
 
-### Tab "📊 Analisis Data (CSV/Excel)"
+### Tab "Analisis Data (CSV/Excel)"
 Ini **bukan RAG** — pendekatannya beda karena data tabular butuh perhitungan presisi (rata-rata,
 total, filter, dsb), bukan pencarian teks mirip. Alurnya:
 
@@ -105,7 +105,7 @@ autentikasi/rate-limit tambahan kalau kamu deploy untuk banyak orang asing.
 
 Kalau hasil analisis berupa tabel/series numerik (≤30 baris), otomatis muncul bar chart juga.
 
-## 🤖 Fitur Agentic RAG
+## Fitur Agentic RAG
 
 Bisa diaktif/nonaktifkan lewat toggle "Aktifkan query decomposition + auto re-retrieval" di sidebar.
 
