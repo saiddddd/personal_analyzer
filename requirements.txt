@@ -1,0 +1,16 @@
+streamlit>=1.38
+groq>=0.11
+chromadb>=0.5
+sentence-transformers>=3.0
+pypdf>=4.3
+torchvision>=0.18
+pysqlite3-binary; platform_system == "Linux"
+
+
+pandas>=2.0
+openpyxl>=3.1
+python-docx>=1.1
+requests>=2.31
+beautifulsoup4>=4.12
+pytesseract>=0.3.10
+pdf2image>=1.17
