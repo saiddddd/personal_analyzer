@@ -1,5 +1,7 @@
 # RAG Dashboard (Groq + ChromaDB + Streamlit)
 
+visit: https://q8qfazxhnk8sfyfsplqgbq.streamlit.app/ (kalau dia sleep bangunin aja pakai reboot (ribut2 bangun deh..))
+
 Dashboard untuk tanya-jawab dokumen (RAG) dan analisis data tabular, jalan lokal atau bisa di-deploy. Semua tools yang dipakai gratis.
 
 ## Stack
