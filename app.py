@@ -3,7 +3,6 @@ import re
 import sys
 import uuid
 
-
 try:
     __import__("pysqlite3")
     sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
@@ -40,11 +39,13 @@ except ImportError:
 st.set_page_config(page_title="RAG Dashboard", page_icon="📚", layout="wide")
 
 
-def get_default_api_key() -> str:
+def get_secret_api_key():
+    """Cek apakah API key sudah dikonfigurasi lewat Streamlit Secrets."""
     try:
-        return st.secrets["GROQ_API_KEY"]
+        key = st.secrets["GROQ_API_KEY"]
+        return key if key else None
     except Exception:
-        return os.getenv("GROQ_API_KEY", "")
+        return None
 
 
 # ============================================================
@@ -52,13 +53,19 @@ def get_default_api_key() -> str:
 # ============================================================
 st.sidebar.title("⚙️ Konfigurasi")
 
-groq_api_key = st.sidebar.text_input(
-    "Groq API Key",
-    type="password",
-    value=get_default_api_key(),
-    help="Ambil gratis di https://console.groq.com/keys",
-)
-st.sidebar.markdown("[🔑 Ambil API Key gratis di sini](https://console.groq.com/keys)")
+_secret_key = get_secret_api_key()
+if _secret_key:
+    # Sudah dikonfigurasi admin lewat Secrets -> gak perlu tampilkan kolom input sama sekali
+    groq_api_key = _secret_key
+    st.sidebar.success("✅ Groq API Key sudah dikonfigurasi.")
+else:
+    groq_api_key = st.sidebar.text_input(
+        "Groq API Key",
+        type="password",
+        value=os.getenv("GROQ_API_KEY", ""),
+        help="Ambil gratis di https://console.groq.com/keys",
+    )
+    st.sidebar.markdown("[🔑 Ambil API Key gratis di sini](https://console.groq.com/keys)")
 
 model_name = st.sidebar.selectbox(
     "Model LLM (Groq)",
